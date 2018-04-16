@@ -7,7 +7,6 @@ class Board:
         if param:
             self.from_list(param)
         else:
-            self.board_array = []
             numbers_array = list(range(9))
             random.shuffle(numbers_array)
             self.from_list(numbers_array)
@@ -33,8 +32,17 @@ class Board:
                 if self.board_array[i][j] == 0:
                     return i, j
 
+    def swap(self, coord_first, coord_second):
+        tmp = self.board_array[coord_first[0]][coord_first[1]]
+        self.board_array[coord_first[0]][coord_first[1]] = self.board_array[coord_second[0]][coord_second[1]]
+        self.board_array[coord_second[0]][coord_second[1]] = tmp
+
     def get_board(self):
         return self.board_array
+
+    def get_board_as_list(self):
+        return self.board_array[0] + self.board_array[1] + self.board_array[2]
+
 
     def from_list(self, array):
         self.board_array = list(range(3))
