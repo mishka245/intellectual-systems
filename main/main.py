@@ -1,5 +1,9 @@
+import sys
+import os
+sys.path.append(os.getcwd())
 from lib.board import Board
 from lib.my_queue import MyQueue
+
 
 MOVES = [(0, -1), (-1, 0), (0, 1), (1, 0)]
 TARGET_STATE = Board([1, 2, 3, 4, 5, 6, 7, 8, 0])
@@ -52,7 +56,25 @@ def tree_search(problem, target):
         list_close.put(current_node)
 
 
-test_board = Board([1, 2, 3, 4, 5, 6, 0, 7, 8])
+test_board = Board([1, 2, 3, 4, 5, 6, 8, 7, 0])
 test_board_1 = Board()
 
-print(tree_search(test_board_1, TARGET_STATE))
+while True:
+    text = input("Enter start array or R for random choice - ").strip()
+    if text.lower() == "r":
+        board = Board()
+    else:
+        try:
+            array = text.split(' ')
+            array = list(map(int, array))
+            if len(array) == 9:
+
+                board = Board(array)
+            else:
+                print("Something went wrong with passed parameters")
+                continue
+        except:
+            print("Something went wrong with passed parameters")
+            continue
+
+    print(tree_search(board, TARGET_STATE))
