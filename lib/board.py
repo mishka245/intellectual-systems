@@ -2,6 +2,9 @@ import random
 
 
 class Board:
+    """
+    Board class to represent nodes and work with them
+    """
 
     def __init__(self, param=None):
         if param:
@@ -33,18 +36,34 @@ class Board:
                     return i, j
 
     def swap(self, coord_first, coord_second):
+        """
+        Swap two number
+        :param coord_first: first number coordinates
+        :param coord_second: second number coordinates
+        :return: returns None
+        """
         tmp = self.board_array[coord_first[0]][coord_first[1]]
         self.board_array[coord_first[0]][coord_first[1]] = self.board_array[coord_second[0]][coord_second[1]]
         self.board_array[coord_second[0]][coord_second[1]] = tmp
 
     def get_board(self):
+        """
+        :return: numbers matrix
+        """
         return self.board_array
 
     def get_board_as_list(self):
+        """
+        :return: board matrix as one dimensional list
+        """
         return self.board_array[0] + self.board_array[1] + self.board_array[2]
 
-
     def from_list(self, array):
+        """
+        Make board from array
+        :param array: array
+        :return: None
+        """
         self.board_array = list(range(3))
         for i in range(3):
             self.board_array[i] = array[i * 3:((i + 1) * 3)]

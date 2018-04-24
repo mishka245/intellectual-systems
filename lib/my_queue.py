@@ -2,6 +2,9 @@ from queue import Queue
 
 
 class MyQueue(Queue):
+    """
+    MyQueue class for saving nodes and search them in O(1)
+    """
     def _init(self, maxsize):
         self.queue = set()
 
