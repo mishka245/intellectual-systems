@@ -1,8 +1,7 @@
 """
-created by Mikheil lomidze
+created by Mikheil Lomidze
 Just for educational purposes
 8 game puzzle
-Main program
 
 """
 import sys
