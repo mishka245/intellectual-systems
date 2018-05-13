@@ -11,6 +11,13 @@ import os
 sys.path.append(os.getcwd())
 from enum import Enum
 
+VIEW_TEMPLATE =  """-------------
+| {} | {} | {} |
+-------------
+| {} | {} | {} |
+-------------
+| {} | {} | {} |
+------------- """
 
 class Player(Enum):
     """
@@ -49,6 +56,19 @@ class Board:
         self.array = []
         for i in range(3):
             self.array.append([Player.NONE, Player.NONE, Player.NONE])
+    def __str__(self):
+        chars = []
+        for i in range(3):
+            for j in range(3):
+                if self.array[i][j] == Player.PLAYER1:
+                    chars.append('X')
+                elif self.array[i][j] == Player.PLAYER2:
+                    chars.append('O')
+                else:
+                    chars.append(" ")
+        return VIEW_TEMPLATE.format(*chars)
+
+
 
     def choose_area(self, x: int, y: int, player: Player):
         if player.value not in (1, 2):
@@ -66,3 +86,7 @@ class Board:
                     return self.array[line[0][0]][line[0][1]]
         return Player.NONE
 
+
+print("Welcome to Tic Tac Toe game!!!")
+while True:
+    pass
