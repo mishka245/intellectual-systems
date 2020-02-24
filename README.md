@@ -1,4 +1,4 @@
-# intellectual-systems
+# Intellectual Systems
 Repository for games which use inteleqtual systems for dicision makeing.
 
 8 Game is implemented using Full search algorithm.
